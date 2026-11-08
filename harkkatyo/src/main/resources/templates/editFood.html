@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Modify Food item</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+    <h1>Edit food item</h1>
+    <div>
+        <form th:object="${food}" th:action="@{../save}" action="#" method="post">
+            <table>
+                <tr>
+                    <input type="hidden" value="id" th:field="*{id}" />
+                    <td><label for="dish">Dish</label>
+                        <input type="text" id="dish" th:field="*{dish}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="restaurant">Restaurant</label>
+                        <input type="text" id="restaurant" th:field="*{restaurant}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="dietaryRestriction">Dietary Restriction</label>
+                        <input type="text" id="dietaryRestriction" th:field="*{dietaryRestriction}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="price">Price</label>
+                        <input type="text" th:field="*{price}" />
+                    </td>
+                </tr>
+                <!-- couldn't make this work
+                <tr>
+                    <td>
+                        <label>Food Type:</label>
+                        <select th:field="*{foodType.id}">
+                            <option th:each="type : ${Foodtypes}" th:value="${type.id}" th:text="${type.myFoodType}">
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label>Category:</label>
+                        <select th:field="*{category.id}">
+                            <option th:each="category : ${categories}" th:value="${category.id}"
+                                th:text="${category.name}">
+                            </option>
+                        </select>
+                    </td>
+                </tr> 
+                -->
+            </table>
+            <input type="submit" value="Save"></input>
+        </form>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<restaurant></restaurant>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+	<h1>Add Food</h1>
+	<div>
+		<form th:object="${food}" th:action="@{../save}" action="#" method="post">
+			<table>
+				<tr>
+					<td><label for="dish">Dish</label>
+						<input type="text" id="dish" th:field="*{dish}" />
+					</td>
+				</tr>
+				<tr>
+					<td><label for="restaurant">Restaurant</label>
+						<input type="text" id="restaurant" th:field="*{restaurant}" />
+					</td>
+				</tr>
+				<tr>
+					<td><label for="dietaryRestriction">Dietary Restriction</label>
+						<input type="text" id="dietaryRestriction" th:field="*{dietaryRestriction}" />
+					</td>
+				</tr>
+				<tr>
+					<td><label for="price">Price</label>
+						<input type="text" th:field="*{price}" />
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<label>Food Type:</label>
+						<select th:field="*{foodType}">
+							<option th:each="type : ${Foodtypes}" 
+							th:value="${type.id}" 
+							th:text="${type.myFoodType}">
+							</option>
+						</select>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<label>Category:</label>
+						<select th:field="*{category}">
+							<option th:each="category : ${categories}" 
+							th:value="${category.id}" 
+							th:text="${category.name}">
+							</option>
+						</select>
+					</td>
+				</tr>
+
+			</table>
+			<input type="submit" value="Save"></input>
+		</form>
+
+		<a th:href="@{/foodlist}">Back to Food List</a>
+
+	</div>
+
+
+</body>
+
+</html>
