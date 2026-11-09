@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.server.ResponseStatusException;
 
 import food.lola.harkkatyo.model.Food;
 import jakarta.validation.Valid;
@@ -92,18 +95,19 @@ public class FoodController {
     }
 
     //deleting food item from menu
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
     public String deleteFood(@PathVariable("id") Long foodId, Model model) {
         foodRepository.deleteById(foodId);
         return "redirect:../foodlist";
     }
 
     //edit food item details (already in menu) 
-    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/edit/{id}")
     public String editFood(@PathVariable("id") Long foodId, Model model) {
         model.addAttribute("food", foodRepository.findById(foodId));
         return "editFood";
     }
+
 
     
 }

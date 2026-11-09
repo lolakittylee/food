@@ -24,8 +24,12 @@
        <td th:text="${food.restaurant}"></td>
        <td th:text="${food.dietaryRestriction}"></td>
         <td th:text="${food.price}"></td>
-        <td><a class="btn btn-danger" th:href="@{/delete/{id}(id=${food.id})}">Delete</a></td>
         <td><a  th:href="@{/edit/{id}(id=${food.id})}">Edit</a></td>
+       <td> 
+        <form th:action="@{/delete/{id}(id=${food.id})}" method="post">
+          <button class="btn btn-danger" type="submit">Delete</button>
+        </form>
+      </td>
      </tr>
 </table>
 <p><input class="btn btn-success" type="submit" value="Add food" /></p>
