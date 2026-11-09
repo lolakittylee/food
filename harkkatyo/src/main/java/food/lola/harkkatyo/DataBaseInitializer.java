@@ -38,24 +38,24 @@ public class DataBaseInitializer {
 
 			//test data
 			foodRepository.save(new Food(
-				"Pizza",
-				"Yo mama's",
+				"Mushroom Pizza",
+				"The Oven",
 				"vegetarian",
-				15.00,
+				12.90,
 				pizza)); 
 			
 			foodRepository.save(new Food(
 				"Carbonara",
-				"Still yo mama",
+				"Olive Gardenia",
 				"lactose free",
-				20.00,
+				15.95,
 				pasta,
 				mainDish
 			));
 
 			foodRepository.save(new Food(
 				"Tiramisu",
-				"Still yo mama",
+				"Trattoria",
 				"vegan",
 				8.00,
 				sweet,
@@ -64,7 +64,7 @@ public class DataBaseInitializer {
 
 			foodRepository.save(new Food(
 				"Tomato soup",
-				"Somebody's mama",
+				"Mama's Kitchen",
 				"vegan",
 				10.00,
 				soup,
